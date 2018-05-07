@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JokesPI: Random some jokes and use it</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $.getJSON("https://08ad1pao69.execute-api.us-east-1.amazonaws.com/dev/random_joke", function (json) {
+                $(".type").html(json.type);
+                $(".setup").html(json.setup);
+                $(".punchline").html(json.punchline);
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <div class="row">
+        <div class="col-sm-2 "></div>
+        <div class="center-page col-sm-8 card">
+            <div class="p-5">
+                <h2 class="type display-4 mb-4"></h2>
+                <div>
+                    <p class="setup p-large"></p>
+                    <h3 class="punchline"></h3>
+
+
+                    <a class="twitter-share-button" 
+                    href="https://twitter.com/intent/tweet?text=Hello%20world"
+                    data-size:"large">
+                        Tweet</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-2"></div>
+    </div>
+
+    </div>
+
+
+
+
+    <script src="js/script.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/popper.min.js"></script>
+</body>
+
+</html>
