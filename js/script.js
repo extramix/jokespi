@@ -11,25 +11,16 @@
 let type = document.querySelector('.type');
 let setup = document.querySelector('.setup');
 let punchline = document.querySelector('.punchline');
-//let button = document.getElementById('newjoke').addEventListener('click');
 
 
-
-var xhr = new XMLHttpRequest();
+let xhr = new XMLHttpRequest();
 xhr.open('GET', 'https://raw.githubusercontent.com/extramix/official_joke_api/master/jokes/index.json', true);
 xhr.onload = function () {
-    /* if (this.status == 200 ) {
-        console.log(this.responseText);
-        joke = JSON.parse(this.responseText);
-        type.innerHTML = joke.type;
-        setup.innerHTML = joke.setup;
-        punchline.innerHTML = joke.punchline;
-    } */
     if(this.status == 200) {
         let jokes = JSON.parse(this.responseText);
         
-        var randomID = Math.floor(jokes.length*Math.random());
-        var joke = jokes[randomID];
+        var randomIndex = Math.floor(jokes.length*Math.random());
+        var joke = jokes[randomIndex];
         type.innerHTML = joke.type;
         setup.innerHTML = joke.setup;
         punchline.innerHTML = joke.punchline;
@@ -38,13 +29,20 @@ xhr.onload = function () {
 }
 xhr.send();
 
-function RandomID(){
-    var randomID = Math.floor(jokes.length*Math.random());
-    return randomID
-}
+//New joke button
+let button = document.getElementById('newjoke').addEventListener("click", function(){
+    xhr.open('GET', 'https://raw.githubusercontent.com/extramix/official_joke_api/master/jokes/index.json', true);
+    xhr.onload = function () {
+    if(this.status == 200) {
+        let jokes = JSON.parse(this.responseText);
+        
+        var randomIndex = Math.floor(jokes.length*Math.random());
+        var joke = jokes[randomIndex];
+        type.innerHTML = joke.type;
+        setup.innerHTML = joke.setup;
+        punchline.innerHTML = joke.punchline;
+    }
 
-
-var twitturl = "https://twitter.com/intent/tweet?";
-function Direct() {
-    console.log("working");
 }
+xhr.send();
+});
