@@ -9,15 +9,17 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/jquery.min.js"></script>
-    <script>
+
+    <!-- <script>
         $(document).ready(function () {
             $.getJSON("https://08ad1pao69.execute-api.us-east-1.amazonaws.com/dev/random_joke", function (json) {
                 $(".type").html(json.type);
                 $(".setup").html(json.setup);
                 $(".punchline").html(json.punchline);
+               
             });
         });
-    </script>
+    </script> -->
 </head>
 
 <body>
@@ -30,7 +32,7 @@
                 <div>
                     <p class="setup p-large"></p>
                     <h3 class="punchline"></h3>
-
+                    <button id="newjoke" class="btn btn-dark mt-3">New Joke</button>
 
                     <a class="twitter-share-button" 
                     href="https://twitter.com/intent/tweet?text=Hello%20world"
@@ -44,7 +46,6 @@
     </div>
 
     </div>
-
 
 
 
